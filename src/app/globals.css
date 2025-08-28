@@ -3,6 +3,32 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --chat-bg: #ffffff;
+  --sidebar-bg: #f8fafc;
+  --border-color: #e2e8f0;
+  
+  /* Custom colors for our chat app */
+  --tomato-50: #fef7f5;
+  --tomato-100: #fdeee8;
+  --tomato-200: #fad5c6;
+  --tomato-300: #f6b89f;
+  --tomato-400: #f09171;
+  --tomato-500: #e96743;
+  --tomato-600: #d54d2a;
+  --tomato-700: #b23e20;
+  --tomato-800: #91341d;
+  --tomato-900: #752d1d;
+  
+  --amber-50: #fffbeb;
+  --amber-100: #fef3c7;
+  --amber-200: #fde68a;
+  --amber-300: #fcd34d;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --amber-600: #d97706;
+  --amber-700: #b45309;
+  --amber-800: #92400e;
+  --amber-900: #78350f;
 }
 
 @theme inline {
@@ -10,17 +36,121 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  /* Tomato color variants */
+  --color-tomato-50: var(--tomato-50);
+  --color-tomato-100: var(--tomato-100);
+  --color-tomato-200: var(--tomato-200);
+  --color-tomato-300: var(--tomato-300);
+  --color-tomato-400: var(--tomato-400);
+  --color-tomato-500: var(--tomato-500);
+  --color-tomato-600: var(--tomato-600);
+  --color-tomato-700: var(--tomato-700);
+  --color-tomato-800: var(--tomato-800);
+  --color-tomato-900: var(--tomato-900);
+  
+  /* Amber color variants */
+  --color-amber-50: var(--amber-50);
+  --color-amber-100: var(--amber-100);
+  --color-amber-200: var(--amber-200);
+  --color-amber-300: var(--amber-300);
+  --color-amber-400: var(--amber-400);
+  --color-amber-500: var(--amber-500);
+  --color-amber-600: var(--amber-600);
+  --color-amber-700: var(--amber-700);
+  --color-amber-800: var(--amber-800);
+  --color-amber-900: var(--amber-900);
+  
+  /* Custom animations */
+  --animate-fade-in: fadeIn 0.3s ease-in-out;
+  --animate-slide-up: slideUp 0.4s ease-out;
+  --animate-bounce-gentle: bounceGentle 0.6s ease-out;
+  --animate-pulse-soft: pulseSoft 2s ease-in-out infinite;
+  
+  /* Custom shadows */
+  --shadow-soft: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+  --shadow-soft-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-tomato: 0 4px 14px 0 rgba(233, 103, 67, 0.25);
+  --shadow-amber: 0 4px 14px 0 rgba(245, 158, 11, 0.25);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #171717;
+    --chat-bg: #ffffff;
+    --sidebar-bg: #f8fafc;
+    --border-color: #e2e8f0;
+  }
+}
+
+/* Keyframes for custom animations */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounceGentle {
+  0%, 20%, 53%, 80%, 100% { transform: translate3d(0,0,0); }
+  40%, 43% { transform: translate3d(0, -10px, 0); }
+  70% { transform: translate3d(0, -5px, 0); }
+  90% { transform: translate3d(0, -2px, 0); }
+}
+
+@keyframes pulseSoft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(243 244 246);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(209 213 219);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(156 163 175);
+}
+
+/* Dark mode scrollbar */
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-track {
+    background: rgb(31 41 55);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgb(75 85 99);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(107 114 128);
+  }
 }
