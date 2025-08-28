@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ZynChat - Connect with Friends",
+  title: "EvonChat - Connect with Friends",
   description: "A beautiful and modern chat application built with Next.js and Firebase",
 };
 
